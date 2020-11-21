@@ -24,5 +24,22 @@
         {{/each}}
     </table>
 </script>
+  <script>
+   function result() {
+       var fname = document.getElementById('first_name').value;
+       var lname = document.getElementById('last_name').value;
+
+       var context = {first_name: fname, last_name: lname};         // the data object that will be substituted
+
+       var source   = document.getElementById('text-template').innerHTML;  // get template text
+       var template = Handlebars.compile(source);                          // compile the template
+       var html = template(context);                              // substitute data into template
+
+       document.getElementById('result').innerHTML = html;        // display completed html in division
+  }
+
+  document.getElementById('btn').addEventListener('click', show_welcome);
+
+</script>
 </body>
 </html>
