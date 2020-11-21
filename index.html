@@ -28,10 +28,11 @@
   
   <script>
    function show_welcome() {
-       var fname = document.getElementById('first_name').value;
-       var lname = document.getElementById('last_name').value;
+       var name = document.getElementById('name').value;
+       var major = document.getElementById('major').value;
+	   var midterm = document.getElementById('midterm').value;
+	   var finalTest = document.getElementById('final').value;
 
-       var context = {first_name: fname, last_name: lname};         // the data object that will be substituted
 
        var source   = document.getElementById('text-template').innerHTML;  // get template text
        var template = Handlebars.compile(source);                          // compile the template
@@ -41,6 +42,7 @@
   }
 
   document.getElementById('btn').addEventListener('click', show_welcome);
+  document.getElementById('btn2').addEventListener('click', show_welcome)
 
 </script>
   
@@ -63,7 +65,7 @@
             var contents = "<table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>"
             
             for(i= 0; i < data.length; i++) {
-              contents += "<tr><td>" + data[i]name + "</td><td>" + data[i]major + "</td><td>" + data[i]midterm "</td><td>" +data[i]final + "</td></tr>";
+              contents += "<tr><td>" + data[i]name + "</td><td>" + data[i]major + "</td><td>" + data[i]midterm "</td><td>" +data[i]finalTest + "</td></tr>";
             }
             
             contents += "</table>";
