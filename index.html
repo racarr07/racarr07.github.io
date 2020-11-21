@@ -47,7 +47,11 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() { //when page loads
       
-      document.querySelector('#bttn').onclick = function () {
+      document.querySelector('#btn').onclick = function () {
+        var request = new XHTMLRequest();
+        request.open('GET', 'cit5students.json');
+        
+          document.querySelector('#btn2').onclick = function () {
         var request = new XHTMLRequest();
         request.open('GET', 'cit5students.json');
         
