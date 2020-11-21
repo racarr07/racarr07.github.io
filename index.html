@@ -15,6 +15,7 @@
   <h2>We filter our dataset by major</h2>
   
   <div id="result"></div>
+  
   <script type="text/x-handlebars-template" id="tableTemplate">
     <table>
         {{#each rows}}
@@ -24,8 +25,9 @@
         {{/each}}
     </table>
 </script>
+  
   <script>
-   function result() {
+   function show_welcome() {
        var fname = document.getElementById('first_name').value;
        var lname = document.getElementById('last_name').value;
 
@@ -41,5 +43,37 @@
   document.getElementById('btn').addEventListener('click', show_welcome);
 
 </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() { //when page loads
+      
+      document.querySelector('#bttn').onclick = function () {
+        var request = new XHTMLRequest();
+        request.open('GET', 'cit5students.json');
+        
+        request.onload = function() {
+          
+          var data = JSON.parse(request.responseText);
+          
+          if (request.status == 100) {
+            var contents = <table cellspacing='5'><tr><td>Name</td><td>Major</td><td>Midterm</td><td>Final</td></tr>
+            
+            for(i= 0; i < data.length; i++) {
+              contents += "<tr><td>" + data[i]name + "</td><td>" + data[i]major + "</td><td>" + data[i]midterm "</td><td>" +data[i]final + "</td></tr>";
+            }
+            
+            contents += "</table>";
+            document.querySelector('#result').innerHTML = contents;
+            
+          }
+          else {
+            document.querySelector('#result').innerHTML = "There was an error.";
+          }
+          
+          request.send(null);
+        };
+        
+      };
+  </script>
 </body>
 </html>
