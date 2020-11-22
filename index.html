@@ -48,15 +48,15 @@
       request.onload = function() {                     
          var data = JSON.parse(request.responseText);  
 
-         CIT_items = data.filter(getStudent)       // meal_itmes array will contain the filtered data using the getMeal() function
+         student_items = data.filter(getStudent)       // meal_itmes array will contain the filtered data using the getMeal() function
          function getStudent(item) {
-            return CIT_items == selected_major;   // the new meal_items array will contain only items for the selected meal
+            return student_items == selected_major;   // the new meal_items array will contain only items for the selected meal
          }
         
         if (request.status == 200) {    // if all is well as data returns, then compile and populate the template
             var templateText = document.getElementById('tableTemplate').innerHTML;
             var compiledTemplateText = Handlebars.compile(templateText);  
-            compiledHtml = compiledTemplateText({ rows: CIT_items }) 
+            compiledHtml = compiledTemplateText({ rows: student_items }) 
             document.getElementById('studentData').innerHTML = compiledHtml; 
         }
         else {
