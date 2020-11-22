@@ -33,7 +33,7 @@
 
   	request.onload = function() {    
   		    var data = JSON.parse(request.responseText); 
-  		    if (request.status == 100) {
+  		    if (request.status == 200) {
 	var source = document.getElementById('tableTemplate').innerHTML;
   var template = Handlebars.compile(source);
   var html = template(context);
