@@ -1,0 +1,66 @@
+<DOCTYPE html>
+<html>
+<head>
+  <title>Program 5</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div class="result">
+  <h1>Select a Major</h1>
+  
+  <button type="button" class="btn" onClick="getData('CIT Majors')">CIT Majors</button>
+  
+  <button type="button" class="btn2" onClick="getData('Business Majors')">Business Majors</button>
+  
+  <h2>We filter our dataset by major</h2>
+  </div>
+  
+  
+  <script type="text/x-handlebars-template" id="tableTemplate">
+       <table class="table table-striped">
+        <tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
+        {{#each rows}}
+        <tr>
+                <td>{{Name}}</td><td>{{Major}}</td><td>{{Midterm}}</td><td>{{Final}}</td>
+              </tr>
+        {{/each}}
+    </table>
+</script>
+  
+  <script>
+   function getData(selected_major) {
+    var request = new XMLHttpRequest();
+      request.open('GET', 'cit5students');    
+
+       request.onload = function() {       
+       var data = JSON.parse(request.responseText);
+
+       major_items = data.filter(getMajor)
+       function getMajor(item) {
+      return item.major == selected_major;
+      }
+      
+
+          if (request.status == 100) {
+            var templateText = document.getElementById('tableTemplate').innerHTML;
+            var compiledTemplateText = Handlebars.compile(templateText);       
+            compiledHtml = compiledTemplateText({ rows: student_info })          
+            document.getElementById('studentTable').innerHTML = compiledHtml; 
+          }
+          else {
+            document.querySelector('#studentTable').innerHTML = "There was an error.";
+          }
+
+        }
+          
+          request.send(null);
+        
+      }
+</script>
+</body>
+</html>
