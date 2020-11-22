@@ -23,7 +23,7 @@
   
   <h3>We filter our dataset by major</h3>
       <div id="studentData"></div>
-      <p>Student Data is provided by <a href="cit5students.json"></a></p>
+      <p>Student Data is provided by <a href="cit5students.json">JSON</a></p>
   </div> 
   </body>
 
@@ -40,24 +40,24 @@
   </script>
 
   <!-- application ajax code -->
-  <script>
+   <script>
 
-  function getData(selected_major) {      
+  function getData(selected_major) {      // called when a button is clicked. paramter selected_meal = breakfast, lunch, or dinner
       var request = new XMLHttpRequest();
-      request.open('GET', 'cit5students.json');     
+      request.open('GET', 'cit5students.json');      // open Ajax request for data file menu_items.json
  
-      request.onload = function() {                     
-         var data = JSON.parse(request.responseText);  
+      request.onload = function() {                     // when the data comes back, browser calls this function
+         var data = JSON.parse(request.responseText);    // convert json to javascript array of objects
 
-         cit_students = data.filter(getStudent)       // meal_itmes array will contain the filtered data using the getMeal() function
-         function getStudent(student) {
-            return cit_students == selected_major;   // the new meal_items array will contain only items for the selected meal
+         major_items = data.filter(getMajor)       // meal_itmes array will contain the filtered data using the getMeal() function
+         function getMajor(item) {
+            return item.major == selected_major;   // the new meal_items array will contain only items for the selected meal
          }
         
         if (request.status == 200) {    // if all is well as data returns, then compile and populate the template
             var templateText = document.getElementById('tableTemplate').innerHTML;
-            var compiledTemplateText = Handlebars.compile(templateText);  
-            compiledHtml = compiledTemplateText({ rows: cit_students }) 
+            var compiledTemplateText = Handlebars.compile(templateText);       
+            compiledHtml = compiledTemplateText({ rows: major_items })          
             document.getElementById('studentData').innerHTML = compiledHtml; 
         }
         else {
