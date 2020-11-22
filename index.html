@@ -1,0 +1,49 @@
+<DOCTYPE html>
+<html>
+<head>
+  <title>Program 5</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div class="Student Table">
+  <h1>Select a Major</h1>
+  
+  <button type="button" class="btn btn-primary" onClick="getData('CIT Majors')">CIT Majors</button>
+  
+  <button type="button" class="btn btn-primary" onClick="getData('Business Majors')">Business Majors</button>
+  </div>
+  <script type="text/x-handlebars-template" id="tableTemplate">
+     <table cellspacing='12'>
+         <tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
+            {{#each rows}}
+                 <tr>
+                    <td>{{name}}</td><td>{{major}}</td><td>{{midterm}}</td><td>{{final}}</td>
+                 </tr>
+            {{/each}}
+     </table>
+  </script>
+  <script type="text/javascript">
+  	var request = new XMLHttpRequest();
+  	var url = "cit5student.json";
+  	request.open('GET', url);
+
+  	request.onload = function() {    
+  		    var data = JSON.parse(request.responseText); 
+  		    if (request.status == 100) {
+	var source = document.getElementById('tableTemplate').innerHTML;
+  var template = Handlebars.compile(source);
+  var html = template(context);
+  document.getElementById('Student Table').innerHTML = html;
+ }
+          else {
+             document.querySelector('#studentTable').innerHTML = "There was an error, or data not found";
+          }
+      }        
+
+      request.send(null);    
+ </script>
+</html>
