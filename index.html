@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>Program 5</title>
+</head>
+<body>
+<div id="CIT">
+	<input type="button" name="CIT Majors">
+</div>
+<div id="BUS">
+	<input type="button" name="BUS Majors">
+</div>
+</body>
+ <script type="text/x-handlebars-template" id="tableTemplate">
+     <table cellspacing='12'>
+         <tr><th>Name</th><th>Major</th><th>Midterm</th><th>Final</th></tr>
+            {{#each rows}}
+                 <tr>
+                    <td>{{name}}</td><td>{{major}}</td><td>{{midterm}}</td><td>{{final}}</td>
+                 </tr>
+            {{/each}}
+     </table>
+ </script>
+
+ <script>
+      var request = new XMLHttpRequest();
+      var url = "cit5students.json"; 
+      request.open('GET', url);     
+
+      request.onload = function() {              
+      	var data = JSON.parse(request.responseText);
+      	
+
+      	if (request.status == 200) {
+      		 var templateText = document.getElementById('tableTemplate').innerHTML;
+      		  var compiledTemplateText = Handlebars.compile(templateText); 
+      		  compiledHtml = compiledTemplateText({ rows: data })  
+      		  document.getElementById('CIT').innerHTML = compiledHtml; 
+      		   }
+          else {
+             document.querySelector('#CIT').innerHTML = "There was an error, or data not found";
+          }
+      
+      for(i = 0; i < BUS.length; i++) {      
+   if(BUS[i]final. <= 100) {              
+       oldBUS.push(BUS[i])          
+       }
+}
+     else {
+             document.querySelector('#BUS').innerHTML = "There was an error, or data not found";
+          }
+      }
+</html>
