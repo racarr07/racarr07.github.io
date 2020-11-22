@@ -23,11 +23,13 @@
   
   <h3>We filter our dataset by major</h3>
   <div id="studentData">
+      <script>
      var students [
       {"name":"Alice","major":"CIT","midterm":78,"final":87},
       {"name":"Aaron","major":"CIT","midterm":68,"final":81},
       {"name":"Abbie","major":"BUS","midterm":75,"final":87}
       ];
+      </script>
   </div> 
   </body>
 
@@ -53,8 +55,8 @@
       request.onload = function() {                     
          var data = JSON.parse(request.responseText);  
 
-         student_items = data.filter(getStudent)       // meal_itmes array will contain the filtered data using the getMeal() function
-         function getStudent(item) {
+         student_items = data.filter(getStudents)       // meal_itmes array will contain the filtered data using the getMeal() function
+         function getStudents(item) {
             return item.meal == selected_major;   // the new meal_items array will contain only items for the selected meal
          }
         
