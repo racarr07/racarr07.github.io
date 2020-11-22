@@ -22,7 +22,7 @@
       </div>
   
   <h3>We filter our dataset by major</h3>
-      <script>
+  <div id="studentData>
      var students [
       {"name":"Alice","major":"CIT","midterm":78,"final":87},
       {"name":"Aaron","major":"CIT","midterm":68,"final":81},
@@ -63,10 +63,10 @@
             var templateText = document.getElementById('tableTemplate').innerHTML;
             var compiledTemplateText = Handlebars.compile(templateText);  
             compiledHtml = compiledTemplateText({ rows: student_items }) 
-            document.getElementById('students').innerHTML = compiledHtml; 
+            document.getElementById('studentData').innerHTML = compiledHtml; 
         }
         else {
-            document.querySelector('#students').innerHTML = "There was an error, or menu items not found";
+            document.querySelector('#studentData').innerHTML = "There was an error, or menu items not found";
         }
      }
      
