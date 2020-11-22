@@ -52,6 +52,11 @@
             compiledHtml = compiledTemplateText({ rows: student_info })          
             document.getElementById('studentTable').innerHTML = compiledHtml; 
           }
+          for(i = 0; i < data.length; i++) {         
+                         contents += "<tr><td>" + data[i].name + "</td><td>" + data[i].major + "</td><td>" + data[i].midterm +  "</td><td>" + data[i].final + "</td></tr>";
+                     }
+                     contents += "</table>";
+         
           else {
             document.querySelector('#studentTable').innerHTML = "There was an error.";
           }
