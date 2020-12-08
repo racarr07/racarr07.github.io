@@ -33,33 +33,32 @@
 
 </div>   <!-- end carsApp -->
 </div>  
+	<script>
 
-
-<script>
 var app = angular.module('studentsApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
     $routeProvider 
       .when('/', {
-          templateUrl : 'index.html',    // route for the home page
-          controller : 'indexCtrl'
+          templateUrl : 'partials/gpa.html',    // route for the home page
+          controller : 'gpaCtrl'
       })
       .when('/home', {
-          templateUrl : 'index.html',
-          controller : 'indexCtrl'
+          templateUrl : 'partials/gpa.html',
+          controller : 'gpaCtrl'
       })
-      .when('/all_students', {
+      .when('/all_cars', {
           templateUrl : 'partials/all_students.html',    // show all cars
           controller : 'allCtrl'
       })
       .otherwise({
-          redirectTo: 'index.html'        // any other URL goes to home
+          redirectTo: 'partials/gpa.html'        // any other URL goes to home
       });
 });
 
 
           /*   a controller for each page  */
-app.controller('indexCtrl', function($scope, $http) {
+app.controller('gpaCtrl', function($scope, $http) {
   
      var today = new Date();  /* get today's date */
      $scope.date= today.toDateString()
@@ -75,10 +74,7 @@ app.controller('allCtrl', function($scope, $http) {
      });
 
 });
-
-</script>
 	
-	
-
+	</script>
   </body>
 </html>
