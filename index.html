@@ -40,9 +40,15 @@ var app = angular.module('studentsApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
     $routeProvider 
-      .when('/all_students', {
+      .when('/', {
+          templateUrl : 'index.html',    // route for the home page
+          controller : 'homeCtrl'
+      })
+    
+    
+      .when('/index', {
           templateUrl : 'index.html',    // show all cars
-          controller : 'allCtrl'
+          controller : 'indexCtrl'
       })
       .otherwise({
           redirectTo: 'gpa.html'        // any other URL goes to home
