@@ -45,7 +45,12 @@ app.config(function($routeProvider) {
           controller : 'homeCtrl'
       })
     
-    
+      .when('/index', {
+          templateUrl : 'index.html',    // show all cars
+          controller : 'indexCtrl'
+      })
+	
+	})
       .when('/index', {
           templateUrl : 'index.html',    // show all cars
           controller : 'indexCtrl'
@@ -87,12 +92,12 @@ app.controller('allCtrl', function($scope, $http) {
                   <th>major</th>
               </tr>
               <tr ng-repeat = "student in students | filter:search_text ">
-                  <td>{{students.id}}</td>
-                  <td>{{students.first_name}}</td>
-                  <td>{{students.last_name}}</td>
-                  <td>{{students.credit_hrs}}</td>
-                  <td>{{students.gpa_points}}</td>
-                  <td>{{students.major}}</td>
+                  <td>{{student.id}}</td>
+                  <td>{{student.first_name}}</td>
+                  <td>{{student.last_name}}</td>
+                  <td>{{student.credit_hrs}}</td>
+                  <td>{{student.gpa_points}}</td>
+                  <td>{{student.major}}</td>
               </tr>
          </table>
 
