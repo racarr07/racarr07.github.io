@@ -28,7 +28,7 @@
 	<div ng-app = "studentsApp">
 
 
-     <div ng-view></div>    <!-- partial pages substituted here -->
+     <div ng-view = "gpa.html"></div>    <!-- partial pages substituted here -->
   
 
 </div>   <!-- end carsApp -->
@@ -81,12 +81,12 @@ app.controller('allCtrl', function($scope, $http) {
                   <th>major</th>
               </tr>
               <tr ng-repeat = "student in students | filter:search_text ">
-                  <td>{{student.id}}</td>
-                  <td>{{student.firstname}}</td>
-                  <td>{{student.lastname}}</td>
-                  <td>{{student.credithrs}}</td>
-                  <td>{{student.gpapoints}}</td>
-                  <td>{{student.major}}</td>
+                  <td>{{students.id}}</td>
+                  <td>{{students.first_name}}</td>
+                  <td>{{students.last_name}}</td>
+                  <td>{{students.credit_hrs}}</td>
+                  <td>{{students.gpa_points}}</td>
+                  <td>{{students.major}}</td>
               </tr>
          </table>
 
