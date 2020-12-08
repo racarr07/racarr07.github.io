@@ -69,5 +69,26 @@ app.controller('allCtrl', function($scope, $http) {
 });
 
 </script>
+	
+	<h2>All Students</h2>
+          <p><input type='text' ng-model='search_text' > Enter Search text</p>
+          <table class="table table-bordered table-striped">
+              <tr>
+                  <th>id</th>
+                  <th>first name</th>
+                  <th>last name</th>
+                  <th>credit hours</th>
+                  <th>gpa points</th>
+                  <th>major</th>
+              </tr>
+              <tr ng-repeat = "students in students | filter:search_text ">
+                  <td>{{students.id}}</td>
+                  <td>{{students.first_name}}</td>
+                  <td>{{car.last_name}}</td>
+                  <td>{{car.credit_hrs}}</td>
+                  <td>{{car.gpa_points}}</td>
+                  <td>{{car.major}}</td>
+              </tr>
+         </table>
   </body>
 </html>
