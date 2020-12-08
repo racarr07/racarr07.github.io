@@ -63,7 +63,7 @@ app.controller('allCtrl', function($scope, $http) {
     
    $http.get("students.json")          // get all the cars table
      .then(function (response) {
-	    $scope.cars = response.data;  
+	    $scope.students = response.data;  
      });
 
 });
