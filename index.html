@@ -40,15 +40,7 @@ var app = angular.module('studentsApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
     $routeProvider 
-      .when('/', {
-          templateUrl : 'index.html',    // route for the home page
-          controller : 'idexCtrl'
-      })
-      .when('/home', {
-          templateUrl : 'index.html',
-          controller : 'indexCtrl'
-      })
-      .when('/all_cars', {
+      .when('/all_students', {
           templateUrl : 'index.html',    // show all cars
           controller : 'allCtrl'
       })
