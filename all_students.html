@@ -48,7 +48,7 @@
 
   <script>
       var app = angular.module('studentsApp', []);
-      app.controller('allStudents', function($scope, $http) {
+      app.controller('allCtrl', function($scope, $http) {
   
           $http.get("students.json")          // get all the car data
           .then(function (response) {
