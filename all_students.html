@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+  <html><head><title>Program 6</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
+</head>
+
+<body ng-app = "studentsApp">
+
+
+<div class="container">
+    <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+         <a class="navbar-brand" href="#">Our Website</a>
+    </div>
+    <div>
+         <ul class="nav navbar-nav">
+             <li class="active"><a href="index.html">Welcome</a></li>
+             <li><a href="all_students.html">All Advisees</a></li>
+         </ul>
+    </div>
+    </nav>    <!-- end nav-bar -->
+
+    <div ng-controller = "allCtrl">
+
+    <h2>All Students</h2>
+       <p><input type='text' ng-model='search_text' > Enter Search text</p>
+       <table class="table table-bordered table-striped">
+           <tr>
+             <th>id</th> <th>first name</th> <th>last name</th> <th>credit hours</th> <th>gpa points</th> <th>major</th> 
+           </tr>
+  
+           <tr ng-repeat = "student in students | filter:search_text">  <!-- filter by search textbox value -->
+               <td>{{student.id}}</td>
+               <td>{{student.first_name}}</td>
+               <td>{{student.last_name}}</td>
+               <td>{{student.credit_hrs}}</td>
+               <td>{{student.gpa_points}}</td>
+               <td>{{student.major}}</td>
+           </tr>
+       </table>
+     </div>   <!-- end carsApp -->
+  </div>   <!-- end class= 'container' -->
+
+  <script>
+      var app = angular.module('StudentsApp', []);
+      app.controller('allStudents', function($scope, $http) {
+  
+          $http.get("students.json")          // get all the car data
+          .then(function (response) {
+               $scope.students = response.data;    // put the data in the table
+          });
+
+       });
+
+</script>
+  </body></html>
