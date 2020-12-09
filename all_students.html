@@ -18,6 +18,7 @@
          <ul class="nav navbar-nav">
              <li class="active"><a href="index.html">Welcome</a></li>
              <li><a href="all_students.html">All Advisees</a></li>
+           <lia><a href="gpa.htmL">Grade Point Average</a></li>
          </ul>
     </div>
     </nav>    <!-- end nav-bar -->
@@ -44,7 +45,7 @@
   </div>   <!-- end class= 'container' -->
 
   <script>
-      var app = angular.module('StudentsApp', []);
+      var app = angular.module('studentsApp', []);
       app.controller('allStudents', function($scope, $http) {
   
           $http.get("students.json")          // get all the car data
