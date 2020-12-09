@@ -36,10 +36,10 @@
   
            <tr ng-repeat = "student in students | filter:search_text">  <!-- filter by search textbox value -->
                <td>{{student.id}}</td>
-               <td>{{student.firstname}}</td>
-               <td>{{student.lastname}}</td>
-               <td>{{student.credithrs}}</td>
-               <td>{{student.gpapoints}}</td>
+               <td>{{student.first}}</td>
+               <td>{{student.last}}</td>
+               <td>{{student.credit}}</td>
+               <td>{{student.gpa}}</td>
                <td>{{student.major}}</td>
            </tr>
        </table>
