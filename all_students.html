@@ -20,7 +20,7 @@
          <ul class="nav navbar-nav">
              <li class="active"><a href="index.html">Welcome</a></li>
              <li><a href="all_students.html">All Advisees</a></li>
-           <lia><a href="gpa.htmL">Grade Point Average</a></li>
+           <li><a href="gpa.htmL">Grade Point Average</a></li>
          </ul>
     </div>
     </nav>    <!-- end nav-bar -->
@@ -36,10 +36,10 @@
   
            <tr ng-repeat = "student in students | filter:search_text">  <!-- filter by search textbox value -->
                <td>{{student.id}}</td>
-               <td>{{student.first_name}}</td>
-               <td>{{student.last_name}}</td>
-               <td>{{student.credit_hrs}}</td>
-               <td>{{student.gpa_points}}</td>
+               <td>{{student.firstname}}</td>
+               <td>{{student.lastname}}</td>
+               <td>{{student.credithrs}}</td>
+               <td>{{student.gpapoints}}</td>
                <td>{{student.major}}</td>
            </tr>
        </table>
