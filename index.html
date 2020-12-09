@@ -57,24 +57,6 @@ app.config(function($routeProvider) {
 });
 
 
-          /*   a controller for each page  */
-app.controller('gpaCtrl', function($scope, $http) {
-  
-     var today = new Date();  /* get today's date */
-     $scope.date= today.toDateString()
-	   
-});
-		  
-		  
-app.controller('allCtrl', function($scope, $http) {
-    
-   $http.get("students.json")          // get all the cars table
-     .then(function (response) {
-	    $scope.students = response.data;  
-     });
-
-});
-	
-	</script>
+</script>
   </body>
 </html>
