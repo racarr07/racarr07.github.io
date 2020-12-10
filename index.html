@@ -10,9 +10,8 @@
 <body style="background-color:powderblue;">
 </head>
 <body>
-<div class="container">
 <nav class="navbar navbar-inverse">
-
+<div class="container fluid">
     <div class="navbar-header">
         <a class="navbar-brand" href="#">Our Website</a>
     </div>
@@ -23,42 +22,8 @@
 	       <li><a href="gpa.html">Grade Point Average</a></li>
        </ul>
     </div>
-
-</nav>    <!-- end nav-bar -->
-	<div ng-app = "studentsApp">
-
-
-     <div ng-view></div>    <!-- partial pages substituted here -->
-  
-
-</div>   <!-- end carsApp -->
-</div>
-	
-	<h3>Welcome! to see all students information click on "all advisees", to just see the gpa click on "grade point average."</h3>
-<script>
-
-var app = angular.module('studentsApp', ['ngRoute']);
-
-app.config(function($routeProvider) {
-    $routeProvider 
-      .when('/', {
-          templateUrl : 'partials/gpa.html',    // route for the home page
-          controller : 'gpaCtrl'
-      })
-      .when('/gpa', {
-          templateUrl : 'partials/gpa.html',
-          controller : 'gpaCtrl'
-      })
-      .when('/all_students', {
-          templateUrl : 'partials/all_students.html',    // show all cars
-          controller : 'allCtrl'
-      })
-      .otherwise({
-          redirectTo: 'partials/gpa.html'        // any other URL goes to home
-      });
-});
-
-
-</script>
+</nav>
+	<h3>Welcome to the Home Page!</h3>
+	<h2>CLick on "all advisees" to see all student information, click on "grade point average" to see calculated student gpa."</h2>
   </body>
 </html>
